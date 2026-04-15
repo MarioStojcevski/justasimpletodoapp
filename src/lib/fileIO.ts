@@ -25,7 +25,7 @@ export function importBoard(file: File): Promise<Task[]> {
           reject(new Error('Invalid file format: no tasks array found.'))
           return
         }
-        resolve(data.tasks)
+        resolve(data.tasks.map((t) => ({ ...t, description: t.description ?? '' })))
       } catch {
         reject(new Error('Failed to parse JSON file.'))
       }

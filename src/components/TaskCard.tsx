@@ -29,6 +29,9 @@ export function TaskCard({ task, onDelete }: Props) {
           ×
         </button>
       </div>
+      {task.description && (
+        <p className="task-description">{task.description}</p>
+      )}
       {task.assignee && <span className="task-assignee">{task.assignee}</span>}
     </div>
   )
@@ -40,6 +43,9 @@ export function TaskCardOverlay({ task }: { task: Task }) {
       <div className="task-header">
         <span className="task-title">{task.title}</span>
       </div>
+      {task.description && (
+        <p className="task-description">{task.description}</p>
+      )}
       {task.assignee && <span className="task-assignee">{task.assignee}</span>}
     </div>
   )

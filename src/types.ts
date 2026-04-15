@@ -3,6 +3,7 @@ export type ColumnId = 'TODO' | 'INPROGRESS' | 'DONE'
 export interface Task {
   id: string
   title: string
+  description: string
   assignee: string
   column: ColumnId
 }

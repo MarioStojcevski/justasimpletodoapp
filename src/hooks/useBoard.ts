@@ -17,10 +17,10 @@ export function useBoard() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [activeTask, setActiveTask] = useState<Task | null>(null)
 
-  function addTask(title: string, assignee: string) {
+  function addTask(title: string, description: string, assignee: string) {
     setTasks((prev) => [
       ...prev,
-      { id: createId(), title, assignee, column: 'TODO' },
+      { id: createId(), title, description, assignee, column: 'TODO' },
     ])
   }
 

@@ -8,7 +8,7 @@ interface Props {
   id: ColumnId
   tasks: Task[]
   onDelete: (id: string) => void
-  onAdd: (title: string, assignee: string) => void
+  onAdd: (title: string, description: string, assignee: string) => void
 }
 
 export function Column({ id, tasks, onDelete, onAdd }: Props) {
