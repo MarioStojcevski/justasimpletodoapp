@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #1a1a1a;
+  --color-cream: #e8e4dc;
+  /* Softer chrome than pure ink — borders / card shadows */
+  --color-edge: #c4c0b6;
+  --color-edge-strong: #a8a49c;
+  --shadow-brutal: 3px 3px 0 var(--color-edge);
+  --shadow-brutal-sm: 2px 2px 0 var(--color-edge);
+  --shadow-brutal-md: 4px 4px 0 var(--color-edge);
+  --shadow-brutal-lg: 5px 5px 0 var(--color-edge);
+  --shadow-brutal-xl: 6px 6px 0 var(--color-edge);
+  --shadow-brutal-2xl: 8px 8px 0 var(--color-edge);
+  --shadow-brutal-hover: 4px 4px 0 var(--color-edge-strong);
+  --shadow-brutal-lg-hover: 6px 6px 0 var(--color-edge-strong);
+  --shadow-brutal-active: 1px 1px 0 var(--color-edge);
+}
+
+@layer base {
+  body {
+    @apply min-h-screen bg-cream font-sans text-ink antialiased;
+  }
+}
+
+@keyframes shape-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-30px) scale(1.08);
+  }
+  50% {
+    transform: translateY(15px) scale(0.95);
+  }
+  75% {
+    transform: translateY(-20px) scale(1.04);
+  }
+}
+
+@keyframes shape-spin-float {
+  0% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(90deg) translateY(-20px);
+  }
+  50% {
+    transform: rotate(180deg) translateY(10px);
+  }
+  75% {
+    transform: rotate(270deg) translateY(-15px);
+  }
+  100% {
+    transform: rotate(360deg) translateY(0);
+  }
+}
+
+@keyframes shape-drift {
+  0%,
+  100% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  33% {
+    transform: rotate(45deg) translate(20px, -25px);
+  }
+  66% {
+    transform: rotate(45deg) translate(-15px, 15px);
+  }
+}
+
+@keyframes fade-in-modal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Route / main content — soft enter when switching views */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
